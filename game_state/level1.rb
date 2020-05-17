@@ -1,40 +1,35 @@
-class Field < Chingu::GameState
+class Level1 < Chingu::GameState
   traits :viewport, :timer
   def initialize(options = {})
-    super(options)
-    @background = Image['paisaje.png']
-    # @music = Song.new('media/Puella.mp3')
-    # @music.play()
-    # @moneda = Moneda.create(x: $window.width / 2, y: 534)
-    # @red = Red.create(x: 40, y: $window.height - 100)
-
-    @piso = Suelo.create(x: $window.width / 2, y: 600)
-    Suelo.create(x: $window.width / 2 + 400, y: 500, corta: true)
-
-    @gilbert = Gilbert.create(x: 40, y: 534)
-    coin_position = $window.width / 2
-    10.times do Moneda.create(x: coin_position, y: 534); coin_position += 50; end
-
-    self.input = {escape: :exit}
-  end
-  
-  def update
     super
-    @gilbert.each_collision(Suelo) do |gilbert, suelo|
-      gilbert.velocity_y = 0
-      gilbert.acceleration_y = 0
-      gilbert.subiendo = false
-    end
+    self.input = {e: :edit}
+    @background = Image['paisaje.png']
+    self.viewport.lag = 0
+    self.viewport.game_area = [0, 0, 3000, 600]
+    load_game_objects
+    @gilbert = Gilbert.create(x: 50, y: 300)
+    @contador = 0
+    @marcador = Chingu::Text.create(@contador, x: 5, y: 5, size: 25)
+  end
 
-    @gilbert.each_collision(Moneda) do |gilbert, moneda|
-      collect_coin = Song.new("media/mario-coin.mp3").play
-      moneda.destroy
-    end
+  def edit
+    push_game_state(Chingu::GameStates::Edit.new(except: [Gilbert]))
   end
 
   def draw
     super
     @background.draw(0, 0, 0)
+  end
+
+  def update
+    super
+    self.viewport.center_around(@gilbert)
+    @gilbert.each_collision(Moneda) do |gilbert, moneda|
+      moneda.play_sound
+      @contador += 1
+      @marcador.text = @contador
+      moneda.destroy
+    end
   end
 end
 

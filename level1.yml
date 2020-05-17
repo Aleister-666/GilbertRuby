@@ -1,0 +1,41 @@
+---
+- Base:
+    :x: 536.0
+    :y: 584.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- Plataforma:
+    :x: 416.0
+    :y: 536.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- Plataforma:
+    :x: 776.0
+    :y: 496.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- Base:
+    :x: 1607.0
+    :y: 584.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1
+    :factor_y: 1
+    :alpha: 255
+- Base:
+    :x: 2679.0
+    :y: 584.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1
+    :factor_y: 1
+    :alpha: 255

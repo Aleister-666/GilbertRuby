@@ -5,6 +5,11 @@ class Intro < Chingu::GameState
     Chingu::Text.create("Master Developer---> Junior Rengifo", x: 0, y: 150, size: 40)
     Chingu::Text.create("Desing Gilbert---> Duglas Montoya", x: 0, y: 200, size: 40)
     Chingu::Text.create("Presiona Space para comenzar", x: 0, y: 300, size: 30)
-    self.input = {space: Field}
+    self.input = {space: :name}
+  end
+
+  def name
+  	h =Chingu::GameStates::EnterName.new(callback: proc{@player_name = h[:title]; puts @player_name})
+  	push_game_state(h)
   end
 end

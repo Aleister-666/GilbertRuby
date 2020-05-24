@@ -1,5 +1,4 @@
-require 'rubygems' rescue nil
-$LOAD_PATH.unshift File.join(File.expand_path(__FILE__), "..", "..", "lib")
+
 require 'chingu'
 require 'gosu'
 include Gosu
@@ -13,7 +12,7 @@ class Game < Chingu::Window
     super(900, 600, false)
     self.caption = "Gilbert Ruby"
     self.input = {escape: :exit}
-    push_game_state(Level1)
+    push_game_state(Intro)
   end
 end
 

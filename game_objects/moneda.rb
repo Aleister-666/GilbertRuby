@@ -1,5 +1,5 @@
 class Moneda < Chingu::GameObject
-  trait :bounding_circle, debug: true
+  trait :bounding_circle, debug: false
   traits :collision_detection
   def setup
     @animation = Animation.new(file: "media/Moneda.png")

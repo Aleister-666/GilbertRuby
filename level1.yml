@@ -1,41 +1,377 @@
 ---
-- Base:
-    :x: 536.0
-    :y: 584.0
+- Plataforma:
+    :x: 183.0
+    :y: 984.0
     :angle: 0
     :zorder: 100
     :factor_x: 1.0
     :factor_y: 1.0
     :alpha: 255
 - Plataforma:
-    :x: 416.0
-    :y: 536.0
+    :x: 183.0
+    :y: 984.0
     :angle: 0
     :zorder: 100
     :factor_x: 1.0
     :factor_y: 1.0
     :alpha: 255
 - Plataforma:
-    :x: 776.0
+    :x: 688.0
+    :y: 904.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- Plataforma2:
+    :x: 1024.0
+    :y: 888.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 0.17486338797814208
+    :factor_y: 1.0
+    :alpha: 255
+- Plataforma2:
+    :x: 1152.0
+    :y: 832.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 0.17486338797814208
+    :factor_y: 1.0
+    :alpha: 255
+- Plataforma:
+    :x: 1496.0
+    :y: 760.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- Plataforma:
+    :x: 1944.0
+    :y: 704.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- Plataforma:
+    :x: 2168.0
+    :y: 912.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- Plataforma:
+    :x: 2888.0
+    :y: 864.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1
+    :factor_y: 1
+    :alpha: 255
+- Plataforma:
+    :x: 183.0
+    :y: 984.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- Plataforma:
+    :x: 183.0
+    :y: 984.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- Plataforma:
+    :x: 688.0
+    :y: 904.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- Plataforma2:
+    :x: 1024.0
+    :y: 888.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 0.17486338797814208
+    :factor_y: 1.0
+    :alpha: 255
+- Plataforma2:
+    :x: 1152.0
+    :y: 832.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 0.17486338797814208
+    :factor_y: 1.0
+    :alpha: 255
+- Plataforma:
+    :x: 1496.0
+    :y: 760.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- Plataforma:
+    :x: 1944.0
+    :y: 704.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- Plataforma:
+    :x: 2168.0
+    :y: 912.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- Plataforma:
+    :x: 2888.0
+    :y: 864.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- Plataforma:
+    :x: 183.0
+    :y: 984.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- Plataforma:
+    :x: 183.0
+    :y: 984.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- Plataforma:
+    :x: 688.0
+    :y: 904.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- Plataforma2:
+    :x: 1024.0
+    :y: 888.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 0.17486338797814208
+    :factor_y: 1.0
+    :alpha: 255
+- Plataforma2:
+    :x: 1152.0
+    :y: 832.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 0.17486338797814208
+    :factor_y: 1.0
+    :alpha: 255
+- Plataforma:
+    :x: 1496.0
+    :y: 760.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- Plataforma:
+    :x: 1944.0
+    :y: 704.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- Plataforma:
+    :x: 2168.0
+    :y: 912.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- Plataforma:
+    :x: 2888.0
+    :y: 864.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- Plataforma:
+    :x: 183.0
+    :y: 984.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- Plataforma:
+    :x: 183.0
+    :y: 984.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- Plataforma:
+    :x: 688.0
+    :y: 904.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- Plataforma2:
+    :x: 1024.0
+    :y: 888.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 0.17486338797814208
+    :factor_y: 1.0
+    :alpha: 255
+- Plataforma2:
+    :x: 1152.0
+    :y: 832.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 0.17486338797814208
+    :factor_y: 1.0
+    :alpha: 255
+- Plataforma:
+    :x: 1496.0
+    :y: 760.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- Plataforma:
+    :x: 1944.0
+    :y: 704.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- Plataforma:
+    :x: 2168.0
+    :y: 912.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- Plataforma:
+    :x: 2888.0
+    :y: 864.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- Plataforma2:
+    :x: 2616.0
+    :y: 872.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 0.17486338797814208
+    :factor_y: 1.0
+    :alpha: 255
+- Plataforma2:
+    :x: 2968.0
+    :y: 723.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 0.17486338797814208
+    :factor_y: 1
+    :alpha: 255
+- Plataforma2:
+    :x: 2749.0
+    :y: 648.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 0.17486338797814208
+    :factor_y: 1
+    :alpha: 255
+- Plataforma2:
+    :x: 2468.0
+    :y: 538.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 0.17486338797814208
+    :factor_y: 1
+    :alpha: 255
+- Moneda:
+    :x: 344.0
+    :y: 944.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 0.5
+    :factor_y: 0.5
+    :alpha: 255
+- Moneda:
+    :x: 688.0
+    :y: 864.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 0.5
+    :factor_y: 0.5
+    :alpha: 255
+- Moneda:
+    :x: 1152.0
+    :y: 792.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 0.5
+    :factor_y: 0.5
+    :alpha: 255
+- Moneda:
+    :x: 2000.0
+    :y: 872.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 0.5
+    :factor_y: 0.5
+    :alpha: 255
+- Moneda:
+    :x: 2000.0
+    :y: 832.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 0.5
+    :factor_y: 0.5
+    :alpha: 255
+- Moneda:
+    :x: 2472.0
     :y: 496.0
     :angle: 0
     :zorder: 100
-    :factor_x: 1.0
-    :factor_y: 1.0
+    :factor_x: 0.5
+    :factor_y: 0.5
     :alpha: 255
-- Base:
-    :x: 1607.0
-    :y: 584.0
+- Moneda:
+    :x: 2616.0
+    :y: 832.0
     :angle: 0
     :zorder: 100
-    :factor_x: 1
-    :factor_y: 1
-    :alpha: 255
-- Base:
-    :x: 2679.0
-    :y: 584.0
-    :angle: 0
-    :zorder: 100
-    :factor_x: 1
-    :factor_y: 1
+    :factor_x: 0.5
+    :factor_y: 0.5
     :alpha: 255

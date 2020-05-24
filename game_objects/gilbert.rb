@@ -1,7 +1,8 @@
 class Gilbert < Chingu::GameObject
-  trait :bounding_box, debug: true, scale: 0.35
+  trait :bounding_box, debug: true, scale: 0.50
   traits :velocity, :timer, :collision_detection
   attr_accessor :jumping
+  attr_reader :last_x, :last_y
   def initialize(options)
     super
     self.input = {holding_left: :izquierda, holding_right: :derecha, [:space, :holding_up] => :arriba, z: :corriendo, released_z: :no_corriendo}
@@ -70,9 +71,11 @@ class Gilbert < Chingu::GameObject
       @x = @last_x
       @y = @last_y
     end
+    
+
 
     #Esto es Gloria :'''v
-    self.each_collision(Base, Plataforma) do |gilbert, superficie|
+    self.each_collision(Base, Plataforma, Plataforma2) do |gilbert, superficie|
       if self.velocity_y < 0
         gilbert.y = superficie.bb.bottom + gilbert.image.height * self.factor_y
         self.velocity_y = 0
@@ -84,7 +87,5 @@ class Gilbert < Chingu::GameObject
 
     @animation = @gilbertAnimations[@orientation][@direcction] unless moved?
     @last_x, @last_y = @x, @y
-
-    puts @speed
   end
 end

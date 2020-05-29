@@ -10,14 +10,14 @@ Requisitos:
 
 
 Controles del juego do
-    * Flecha-Arriba: saltas.
-    * Flecha-Derecha: Te mueves a la derecha.
-    * Flecha-Izquierda: Te mueves a la izquierda.
-    * Z: Corres y saltas mas alto(mientras mantienes presionada la tecla)
-    * esc: Salir del Juego en cualquier momento.
+* Flecha-Arriba: saltas.
+* Flecha-Derecha: Te mueves a la derecha.
+* Flecha-Izquierda: Te mueves a la izquierda.
+* Z: Corres y saltas mas alto(mientras mantienes presionada la tecla)
+* esc: Salir del Juego en cualquier momento.
 end
 
 Pantalla de introduccion de nombre do
-    * Utiliza las flechas para mover el señalador
-    * Enter: para seleccionar caracter
+* Utiliza las flechas para mover el señalador
+* Enter: para seleccionar caracter
 end

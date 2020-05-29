@@ -4,7 +4,7 @@ class Moneda < Chingu::GameObject
   def setup
     @animation = Animation.new(file: "media/Moneda.png")
     @image = @animation.next
-    @collect_coin = Song.new("media/mario-coin.mp3")
+    @collect_coin = Sample.new("media/Songs/mario-coin.mp3")
     self.scale = 0.5
     cache_bounding_circle
   end

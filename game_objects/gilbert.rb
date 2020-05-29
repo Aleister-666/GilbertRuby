@@ -1,5 +1,5 @@
 class Gilbert < Chingu::GameObject
-  trait :bounding_box, debug: true, scale: 0.50
+  trait :bounding_box, debug: false, scale: 0.5
   traits :velocity, :timer, :collision_detection
   attr_accessor :jumping
   attr_reader :last_x, :last_y
@@ -12,13 +12,14 @@ class Gilbert < Chingu::GameObject
     @gilbertAnimations[:run_left] = Animation.new(file: 'media/Gilbert_animacion_izquierda2.png', size: [66,103])
     @gilbertAnimations[:run_left].frame_names = {stand_left: 15..15}
     @animation = @gilbertAnimations[:run_right][:stand_right]
+    @song_salto = Sample.new("media/Songs/jump.wav")
     @direcction = :stand_right
     @orientation = :run_right
     @jumping = false
     @corriendo = false
     @speed = 3
 
-    self.scale = 1
+    self.scale = 0.9
     self.acceleration_y = 0.5
     self.max_velocity = 15
     self.rotation_center = :bottom_center #Lo que hace que no se caiga. Super importante. Mega iMPORTANTE
@@ -41,6 +42,7 @@ class Gilbert < Chingu::GameObject
   end
   def arriba
     return if @jumping
+    @song_salto.play
     @jumping = true
     @corriendo ? self.velocity_y = -13 : self.velocity_y = -10
   end
@@ -70,18 +72,24 @@ class Gilbert < Chingu::GameObject
     if @x <= 0
       @x = @last_x
       @y = @last_y
+    elsif @x >= 3000
+        @x = @last_x
+        @y = @last_y
     end
     
-
-
     #Esto es Gloria :'''v
     self.each_collision(Base, Plataforma, Plataforma2) do |gilbert, superficie|
       if self.velocity_y < 0
         gilbert.y = superficie.bb.bottom + gilbert.image.height * self.factor_y
         self.velocity_y = 0
       else
-        @jumping = false        
-        gilbert.y = superficie.bb.top - 1
+        superficie.visible ? @jumping = false : @jumping = true
+        #@jumping = false
+        gilbert.y = superficie.bb.top - 1 if superficie.visible?
+      end
+      if collidable
+        after(1500){superficie.hide!}
+        after(2200){superficie.show!}
       end
     end
 

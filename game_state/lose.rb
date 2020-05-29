@@ -7,7 +7,7 @@ class Lose < Chingu::GameState
         msj2 = Chingu::Text.create(decrement, x: 150, y: 200, size: 30)
         after(800){@seg -= 1; msj2.text = decrement}
         after(1600){@seg -= 1; msj2.text = decrement}
-        after(2400){pop_game_state}
+        after(2400){game_states[2].play_song; pop_game_state; game_states[1].pop_game_state;}
     end
 
     def decrement
@@ -15,7 +15,7 @@ class Lose < Chingu::GameState
     end
 
     def draw
+        game_states[2].draw
         super
-        previous_game_state.draw
     end
 end

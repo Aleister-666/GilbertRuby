@@ -2,9 +2,11 @@ class Gilbert < Chingu::GameObject
   trait :bounding_box, debug: false, scale: 0.5
   traits :velocity, :timer, :collision_detection
   attr_accessor :jumping
+  attr_writer :swicht
   attr_reader :last_x, :last_y
   def initialize(options)
     super
+    @area_x = options[:limited]
     self.input = {holding_left: :izquierda, holding_right: :derecha, [:space, :holding_up] => :arriba, z: :corriendo, released_z: :no_corriendo}
     @gilbertAnimations = {}
     @gilbertAnimations[:run_right] = Animation.new(file: 'media/Gilbert_animacion_derecha2.png', size: [66, 103])
@@ -18,12 +20,13 @@ class Gilbert < Chingu::GameObject
     @jumping = false
     @corriendo = false
     @speed = 3
+    @swicht = false
+
 
     self.scale = 0.9
     self.acceleration_y = 0.5
     self.max_velocity = 15
     self.rotation_center = :bottom_center #Lo que hace que no se caiga. Super importante. Mega iMPORTANTE
-
     update
     cache_bounding_box
   end
@@ -57,10 +60,10 @@ class Gilbert < Chingu::GameObject
     @corriendo = false
   end
 
-#Este metodo es la base primordial de todo
+  #Este metodo es la base primordial de todo
   def move(x,y)
     self.x += x
-    self.each_collision(Base, Plataforma) do |gilbert, superficie|
+    self.each_collision(Base, Plataforma) do
       self.x = previous_x
       break
     end
@@ -71,28 +74,26 @@ class Gilbert < Chingu::GameObject
     @image = @animation.next!
     if @x <= 0
       @x = @last_x
-      @y = @last_y
-    elsif @x >= 3000
+      # @y = @last_y
+    elsif @x >= @area_x
         @x = @last_x
-        @y = @last_y
+        # @y = @last_y
     end
-    
     #Esto es Gloria :'''v
-    self.each_collision(Base, Plataforma, Plataforma2) do |gilbert, superficie|
+    @jumping = true #Esto para evitar que se pueda saltar al caerse.
+    self.each_collision(Base, Plataforma, Plataforma2, BaseLv2, PlataformaMLv2, PlataformaSLv2, BaseP) do |gilbert, superficie|
       if self.velocity_y < 0
         gilbert.y = superficie.bb.bottom + gilbert.image.height * self.factor_y
         self.velocity_y = 0
       else
         superficie.visible ? @jumping = false : @jumping = true
-        #@jumping = false
         gilbert.y = superficie.bb.top - 1 if superficie.visible?
       end
-      if collidable
-        after(1500){superficie.hide!}
-        after(2200){superficie.show!}
+      if collidable && @swicht == true
+	        after(1500){superficie.hide!} unless superficie.x < 40
+	        after(2200){superficie.show!}
       end
     end
-
     @animation = @gilbertAnimations[@orientation][@direcction] unless moved?
     @last_x, @last_y = @x, @y
   end

@@ -1,0 +1,15 @@
+GEM
+  specs:
+    chingu (0.9rc9)
+      gosu (>= 0.7.45)
+    gosu (0.15.2)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  chingu
+  gosu
+
+BUNDLED WITH
+   2.1.4

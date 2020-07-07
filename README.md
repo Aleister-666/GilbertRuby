@@ -9,15 +9,14 @@ Recomendacion: "Si siempre atento estas, el game over no conoceras"
 # Novedades v0.6.7
 * Nuevo nivel añadido
 * Correciones menores a la jugabilidad
-
-Requisitos:
+# Requisitos:
 * Resolucion Minima: 900 x 600
 * Linux o Windows(Para la version de windows, esta un ejecutable y no es nesesario tener los demas requisitos)
 * Ruby 2.7 || 1.8.3+
 * Gosu (Si la gema no esta instalada, correr en la terminal el comando "bundle install" para instalar las gemas necesarias)
 * Chingu (Si la gema no esta instalada, correr en la terminal el comando "bundle install" para instalar las gemas necesarias)
 
-
+# Controles
 Controles del juego do
  * Flecha-Arriba: Saltar.
  * Flecha-Derecha: Mover a la derecha.

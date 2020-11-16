@@ -1,0 +1,7 @@
+Bienvenido al Gilbert Ruby, tu objetivo es recolectar el mayor numero de monedas posibles.
+    Tu puntaje sera guardado al perder(SOLO LOS MAYORES PUNTAJES).
+    Mover-Derecha: Flecha-Derecha.
+    Mover-Izquierda: Flecha-Izquierda.
+    Saltar: Flecha-Arriba, Spacio.
+    Correr: Z (Saltaras mas alto si mantienes presionada esta tecla).
+	  Escape: Salir del juego en cualquier momento. EL PUNTAJE NO SERA GUARDADO

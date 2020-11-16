@@ -1,4 +1,4 @@
-# GilbertRuby v0.6.7
+# GilbertRuby v0.6.8
 Practica de juego con Gosu y Chingu en Ruby
 
 # Meta
@@ -6,9 +6,9 @@ El juego consiste en agarrar el mayor numero de monedas posibles, cada vez que s
 
 Recomendacion: "Si siempre atento estas, el game over no conoceras"
 
-# Novedades v0.6.7
-* Nuevo nivel añadido
+# Novedades v0.6.8
 * Correciones menores a la jugabilidad
+* Implementacion de Cheats
 # Requisitos:
 * Resolucion Minima: 900 x 600
 * Linux o Windows(Para la version de windows, esta un ejecutable y no es nesesario tener los demas requisitos)

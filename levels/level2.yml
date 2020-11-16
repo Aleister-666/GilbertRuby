@@ -319,7 +319,7 @@
     :factor_x: 0.9999999999999999
     :factor_y: 1.0000000000000002
     :alpha: 255
-- BaseP:
+- BasePortal:
     :x: 520.0
     :y: 240.0
     :angle: 0

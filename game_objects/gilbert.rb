@@ -1,9 +1,11 @@
 class Gilbert < Chingu::GameObject
   trait :bounding_box, debug: false, scale: 0.5
   traits :velocity, :timer, :collision_detection
+
   attr_accessor :jumping
-  attr_writer :swicht
+  attr_writer :solid
   attr_reader :last_x, :last_y
+
   def initialize(options)
     super
     @area_x = options[:limited]
@@ -20,29 +22,36 @@ class Gilbert < Chingu::GameObject
     @jumping = false
     @corriendo = false
     @speed = 3
-    @swicht = false
+    @solid = true
 
 
     self.scale = 0.9
     self.acceleration_y = 0.5
     self.max_velocity = 15
-    self.rotation_center = :bottom_center #Lo que hace que no se caiga. Super importante. Mega iMPORTANTE
+
+    #Lo que hace que no se caiga. Super importante. Mega iMPORTANTE
+    self.rotation_center = :bottom_center
     update
     cache_bounding_box
   end
 
+  # Mueve a la izquierda al Gilbert
   def izquierda
     move(-@speed, 0)
     @animation = @gilbertAnimations[:run_left]
     @orientation = :run_left
     @direcction = :stand_left
   end
+
+  # Mueve a la derecha al Gilbert
   def derecha
     move(@speed, 0)
     @animation = @gilbertAnimations[:run_right]
     @orientation = :run_right
     @direcction = :stand_right
   end
+
+  # Hace que Gilbert salte
   def arriba
     return if @jumping
     @song_salto.play
@@ -50,6 +59,7 @@ class Gilbert < Chingu::GameObject
     @corriendo ? self.velocity_y = -13 : self.velocity_y = -10
   end
 
+  # Establece la velocidad de Gilbert al correr
   def corriendo
     @speed = 5
     @corriendo = true
@@ -60,7 +70,7 @@ class Gilbert < Chingu::GameObject
     @corriendo = false
   end
 
-  #Este metodo es la base primordial de todo
+  #Este metodo es la base primordial de todo, mueve a Gilbert a una posicion establecida
   def move(x,y)
     self.x += x
     self.each_collision(Base, Plataforma) do
@@ -74,14 +84,15 @@ class Gilbert < Chingu::GameObject
     @image = @animation.next!
     if @x <= 0
       @x = @last_x
-      # @y = @last_y
     elsif @x >= @area_x
-        @x = @last_x
-        # @y = @last_y
+      @x = @last_x
     end
-    #Esto es Gloria :'''v
-    @jumping = true #Esto para evitar que se pueda saltar al caerse.
-    self.each_collision(Base, Plataforma, Plataforma2, BaseLv2, PlataformaMLv2, PlataformaSLv2, BaseP) do |gilbert, superficie|
+    
+    #Esto para evitar que se pueda saltar al caerse
+    @jumping = true 
+
+    # Aqui esta se establece la logica que le da su estabilidad sobre las plataformas/superficies
+    self.each_collision(Base, Plataforma, Plataforma2, BaseLv2, PlataformaMLv2, PlataformaSLv2, BasePortal) do |gilbert, superficie|
       if self.velocity_y < 0
         gilbert.y = superficie.bb.bottom + gilbert.image.height * self.factor_y
         self.velocity_y = 0
@@ -89,11 +100,18 @@ class Gilbert < Chingu::GameObject
         superficie.visible ? @jumping = false : @jumping = true
         gilbert.y = superficie.bb.top - 1 if superficie.visible?
       end
-      if collidable && @swicht == true
+
+=begin
+Se establece si las plataformas deben desaparecer un tiempo despues de ser tocadas o no.
+Esto se especifica en la creacion de un objeto de clase Gilbert
+=end
+      if collidable && @solid == false
 	        after(1500){superficie.hide!} unless superficie.x < 40
 	        after(2200){superficie.show!}
       end
     end
+
+    # Mueve los frame de la animacion
     @animation = @gilbertAnimations[@orientation][@direcction] unless moved?
     @last_x, @last_y = @x, @y
   end

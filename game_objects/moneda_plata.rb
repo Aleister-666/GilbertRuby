@@ -3,11 +3,11 @@ class MonedaPlata < Moneda
 	traits :collision_detection
 	
 	def setup
-		@animation = Animation.new(file: "media/Moneda Plateada.png")
+		@animation = Animation.new(file: 'media/Moneda Plateada.png')
 		@image = @animation.next
-		@collect_coin = Sample.new("media/Songs/mario-coin.mp3")
+		@collect_coin = Sample.new('media/Songs/Coin Collect.ogg')
 		self.scale = 0.23
 		cache_bounding_circle
-  end
+	end
 	
 end

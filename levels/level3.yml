@@ -1,0 +1,329 @@
+---
+- PlataformaSLv3:
+    :x: 288.0
+    :y: 736.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- PlataformaSLv3:
+    :x: 520.0
+    :y: 680.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- PlataformaSLv3:
+    :x: 776.0
+    :y: 600.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- PlataformaSLv3:
+    :x: 704.0
+    :y: 920.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- PlataformaSLv3:
+    :x: 1016.0
+    :y: 912.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- PlataformaSLv3:
+    :x: 1400.0
+    :y: 1016.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- PlataformaSLv3:
+    :x: 1232.0
+    :y: 1272.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- PlataformaSLv3:
+    :x: 1272.0
+    :y: 1544.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- PlataformaSLv3:
+    :x: 1008.0
+    :y: 1600.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- PlataformaSLv3:
+    :x: 407.0
+    :y: 1782.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- PlataformaSLv3:
+    :x: 128.0
+    :y: 1736.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- PlataformaSLv3:
+    :x: 40.0
+    :y: 1880.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- PlataformaSLv3:
+    :x: 128.0
+    :y: 2000.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- PlataformaMLv3:
+    :x: 856.0
+    :y: 2168.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- PlataformaSLv3:
+    :x: 1480.0
+    :y: 2144.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- PlataformaSLv3:
+    :x: 728.0
+    :y: 2472.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- PlataformaSLv3:
+    :x: 112.0
+    :y: 2456.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- PlataformaSLv3:
+    :x: 256.0
+    :y: 2112.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- PlataformaSLv3:
+    :x: 456.0
+    :y: 2112.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- PlataformaSLv3:
+    :x: 1320.0
+    :y: 2024.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- PlataformaSLv3:
+    :x: 1328.0
+    :y: 2240.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- PlataformaSLv3:
+    :x: 1328.0
+    :y: 2448.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- PlataformaSLv3:
+    :x: 1040.0
+    :y: 2448.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- PlataformaSLv3:
+    :x: 304.0
+    :y: 2464.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- PlataformaSLv3:
+    :x: 512.0
+    :y: 2464.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- PlataformaSLv3:
+    :x: 608.0
+    :y: 1857.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- PlataformaSLv3:
+    :x: 768.0
+    :y: 1711.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- PlataformaSLv3:
+    :x: 1464.0
+    :y: 2360.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 0.7714285714285715
+    :alpha: 255
+- PlataformaSLv3:
+    :x: 704.0
+    :y: 1303.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- PlataformaSLv3:
+    :x: 975.0
+    :y: 1311.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- PlataformaSLv3:
+    :x: 1472.0
+    :y: 1408.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- PlataformaSLv3:
+    :x: 400.0
+    :y: 1296.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- PlataformaSLv3:
+    :x: 192.0
+    :y: 1168.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- PlataformaSLv3:
+    :x: 416.0
+    :y: 1016.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- PlataformaSLv3:
+    :x: 1208.0
+    :y: 512.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- PlataformaSLv3:
+    :x: 1224.0
+    :y: 760.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- PlataformaSLv3:
+    :x: 1408.0
+    :y: 648.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- PlataformaSLv3:
+    :x: 1024.0
+    :y: 368.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- PlataformaSLv3:
+    :x: 781.0
+    :y: 280.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255
+- RechargeStation:
+    :x: 520.0
+    :y: 160.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 0.9999999999999999
+    :factor_y: 1.0000000000000002
+    :alpha: 255
+- BaseSpecial:
+    :x: 520.0
+    :y: 240.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :alpha: 255

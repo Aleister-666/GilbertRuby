@@ -2,12 +2,13 @@ class Scaner < Chingu::GameObject
 
 	def initialize(options = {})
 		super
-		if options[:metal] == "bronce"
-			file = "media/FlechasBronce.png"
-		elsif options[:metal] == "plata"
-			file = "media/FlechasPlata.png"
-		elsif options[:metal] == "oro"
-			file = "media/FlechasOro.png"
+		case options[:metal]
+		when 'bronce'
+			file = 'media/FlechasBronce.png'
+		when 'plata'
+			file = 'media/FlechasPlata.png'
+		when 'oro'
+			file = 'media/FlechasOro.png'
 		end
 
 		@scaner_animacion = {}

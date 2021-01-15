@@ -3,27 +3,39 @@ class Gilbert < Chingu::GameObject
   traits :velocity, :timer, :collision_detection
 
   attr_accessor :jumping
-  attr_writer :solid
-  attr_reader :last_x, :last_y
+  attr_reader :last_x, :last_y, :direcction
 
-  def initialize(options)
+  PLATAFORMAS = [Base,
+                 Plataforma,
+                 Plataforma2,
+                 BaseLv3,
+                 PlataformaMLv3,
+                 PlataformaSLv3,
+                 BaseSpecial,
+                 Meta].freeze
+
+  def initialize(options = {})
     super
     @area_x = options[:limited]
-    self.input = {holding_left: :izquierda, holding_right: :derecha, [:space, :holding_up] => :arriba, z: :corriendo, released_z: :no_corriendo}
-    @gilbertAnimations = {}
-    @gilbertAnimations[:run_right] = Animation.new(file: 'media/Gilbert_animacion_derecha2.png', size: [66, 103])
-    @gilbertAnimations[:run_right].frame_names = {stand_right: 15..15}
-    @gilbertAnimations[:run_left] = Animation.new(file: 'media/Gilbert_animacion_izquierda2.png', size: [66,103])
-    @gilbertAnimations[:run_left].frame_names = {stand_left: 15..15}
-    @animation = @gilbertAnimations[:run_right][:stand_right]
-    @song_salto = Sample.new("media/Songs/jump.wav")
+    self.input = {holding_left: :izquierda,
+                  holding_right: :derecha,
+                  %i[space holding_up] => :arriba,
+                  z: :corriendo,
+                  released_z: :no_corriendo}
+    
+    @gilbert_animations = {}
+    @gilbert_animations[:run_right] = Animation.new(file: 'media/Gilbert_animacion_derecha2.png', size: [66, 103])
+    @gilbert_animations[:run_right].frame_names = {stand_right: 15..15}
+    @gilbert_animations[:run_left] = Animation.new(file: 'media/Gilbert_animacion_izquierda2.png', size: [66, 103])
+    @gilbert_animations[:run_left].frame_names = {stand_left: 15..15}
+    @animation = @gilbert_animations[:run_right][:stand_right]
+
+    @song_salto = Sample.new('media/Songs/jump.wav')
     @direcction = :stand_right
     @orientation = :run_right
     @jumping = false
     @corriendo = false
     @speed = 3
-    @solid = true
-
 
     self.scale = 0.9
     self.acceleration_y = 0.5
@@ -38,7 +50,7 @@ class Gilbert < Chingu::GameObject
   # Mueve a la izquierda al Gilbert
   def izquierda
     move(-@speed, 0)
-    @animation = @gilbertAnimations[:run_left]
+    @animation = @gilbert_animations[:run_left]
     @orientation = :run_left
     @direcction = :stand_left
   end
@@ -46,7 +58,7 @@ class Gilbert < Chingu::GameObject
   # Mueve a la derecha al Gilbert
   def derecha
     move(@speed, 0)
-    @animation = @gilbertAnimations[:run_right]
+    @animation = @gilbert_animations[:run_right]
     @orientation = :run_right
     @direcction = :stand_right
   end
@@ -70,12 +82,15 @@ class Gilbert < Chingu::GameObject
     @corriendo = false
   end
 
-  #Este metodo es la base primordial de todo, mueve a Gilbert a una posicion establecida
-  def move(x,y)
+  # Mueve a Gilbert a las cordenadas (X, Y)
+  def move(x, y)
     self.x += x
-    self.each_collision(Base, Plataforma) do
-      self.x = previous_x
-      break
+    each_collision(*PLATAFORMAS) do |gilbert, superficie|
+      if gilbert.x >= superficie.bb.right && gilbert.y != superficie.bb.top
+        self.x = previous_x
+      elsif gilbert.x <= superficie.bb.left && gilbert.y != superficie.bb.top
+        self.x = previous_x
+      end
     end
     self.y += y
   end
@@ -87,32 +102,23 @@ class Gilbert < Chingu::GameObject
     elsif @x >= @area_x
       @x = @last_x
     end
-    
-    #Esto para evitar que se pueda saltar al caerse
+
+    # Esto para evitar que se pueda saltar al caerse
     @jumping = true 
 
     # Aqui esta se establece la logica que le da su estabilidad sobre las plataformas/superficies
-    self.each_collision(Base, Plataforma, Plataforma2, BaseLv2, PlataformaMLv2, PlataformaSLv2, BasePortal) do |gilbert, superficie|
-      if self.velocity_y < 0
-        gilbert.y = superficie.bb.bottom + gilbert.image.height * self.factor_y
-        self.velocity_y = 0
+    each_collision(*PLATAFORMAS) do |gilbert, superficie|
+      if velocity_y.negative?
+        # gilbert.y = superficie.bb.bottom + gilbert.image.height * factor_y
+        gilbert.y = superficie.bb.bottom + gilbert.image.height
+        self.velocity_y = 5
       else
+        gilbert.y = superficie.bb.top if superficie.visible
         superficie.visible ? @jumping = false : @jumping = true
-        gilbert.y = superficie.bb.top - 1 if superficie.visible?
-      end
-
-=begin
-Se establece si las plataformas deben desaparecer un tiempo despues de ser tocadas o no.
-Esto se especifica en la creacion de un objeto de clase Gilbert
-=end
-      if collidable && @solid == false
-	        after(1500){superficie.hide!} unless superficie.x < 40
-	        after(2200){superficie.show!}
       end
     end
-
     # Mueve los frame de la animacion
-    @animation = @gilbertAnimations[@orientation][@direcction] unless moved?
+    @animation = @gilbert_animations[@orientation][@direcction] unless moved?
     @last_x, @last_y = @x, @y
   end
 end

@@ -3,9 +3,9 @@ class Moneda < Chingu::GameObject
   traits :collision_detection
 
   def setup
-    @animation = Animation.new(file: "media/Moneda.png")
+    @animation = Animation.new(file: 'media/Moneda.png')
     @image = @animation.next
-    @collect_coin = Sample.new("media/Songs/mario-coin.mp3")
+    @collect_coin = Sample.new('media/Songs/Coin Collect.ogg')
     self.scale = 0.5
     cache_bounding_circle
   end
@@ -18,4 +18,5 @@ class Moneda < Chingu::GameObject
   def play_sound
     @collect_coin.play
   end
+
 end

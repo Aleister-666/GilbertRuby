@@ -1,5 +1,5 @@
 class EnterName < Chingu::GameStates::EnterName
-  def initialize(options = {})
+  def initialize(**options)
     self.input = { q: proc { pop_game_state } }
     super
     PulsatingText.create('Introduce Un Nombre', x: $window.width / 2, y: 45, size: 70)
@@ -7,6 +7,7 @@ class EnterName < Chingu::GameStates::EnterName
     Chingu::Text.create('Q: Regresar', x: $window.width / 2 - 400, y: $window.height - 45, size: 30)
     @background = Image['Acerca.png']
     @select_song = Sample.new('media/Songs/menuselect.ogg')
+    @select_song.volume = 0.3
   end
 
   def move_cursor(amount)

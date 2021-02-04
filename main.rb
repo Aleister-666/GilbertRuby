@@ -18,7 +18,7 @@ class Game < Chingu::Window
 end
 
 begin
-  Game.new.show
+ Game.new.show
 rescue => e
-  puts "Error: #{e}   Informacion: #{e.full_message}"
+ puts "Error: #{e}   Informacion: #{e.full_message}"
 end

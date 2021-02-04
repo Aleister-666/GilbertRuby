@@ -46,7 +46,6 @@ class Level2 < Chingu::GameState
 
     @music = Song.new('media/Songs/Music Level2.mp3')
     @loser_song = Song.new('media/Songs/gameover.ogg')
-    @music.play(true) if @sonido
 
     @gilbert = Gilbert.create(x: 100, y: viewport.game_area.height - 150, limited: viewport.game_area.width)
 
@@ -58,22 +57,31 @@ class Level2 < Chingu::GameState
 
     @plataformas = Plataforma2.all
     @plataforma_movil = @plataformas.select {|e| e.x == 24 && e.y == 976}.first
+    @tope = false
     @meta = Meta.all.first
 
     case @difficulty
     when 'NORMAL'
       @life_time = 120
     when 'DIFICIL'
-      @life_time = 90
+      @life_time = 100
     when 'INSANE'
-      @life_time = 70
+      @life_time = 80
     end
+
     @timer = Chingu::Text.new("Tiempo: #{@life_time}", x: 350, y: 15, size: 50)
+    @msj_danger = Chingu::Text.new("Se te acaba el tiempo",
+                                   x: @timer.x,
+                                   y: @timer.y + 45,
+                                   size: 30,
+                                   color: Gosu::Color::YELLOW)
 
     every(1000) do
       @life_time -= 1
       @timer.text = "Tiempo: #{@life_time}"
     end
+    
+    @music.play(true) if @sonido
   end
 
   def draw
@@ -85,13 +93,17 @@ class Level2 < Chingu::GameState
     super
     @timer.draw
     @msj_score.text = @score
+    if @life_time <= 30
+      @msj_danger.draw if @life_time
+      @timer.color = Gosu::Color::RED
+    end
   end
 
   def update
     super
     $window.caption = "Gilbert Ruby\tFPS:#{fps}"
     # $window.caption = "Gilbert Ruby\tFPS:#{fps}\t Objects: #{current_game_state.game_objects.size}"
-    @music.volume = 0.3
+    @music.volume = 0.4
     viewport.center_around(@gilbert)
 
     @gilbert.each_collision(Moneda) do |_gilbert, moneda|
@@ -113,13 +125,23 @@ class Level2 < Chingu::GameState
       moneda_o.destroy
     end
 
-    if hit(@plataforma_movil, @gilbert)
-      @plataforma_movil.y -= 3 if @plataforma_movil.y > (976 - 300)
-    elsif !hit(@plataforma_movil, @gilbert)
-      @plataforma_movil.y += 3 if @plataforma_movil.y < 976
+    # if hit(@plataforma_movil, @gilbert)
+    #   @plataforma_movil.y -= 3 if @plataforma_movil.y > (976 - 300)
+    # elsif !hit(@plataforma_movil, @gilbert)
+    #   @plataforma_movil.y += 3 if @plataforma_movil.y < 976
+    # end
+
+    if @plataforma_movil.y > (976 - 300) && !@tope
+    	@plataforma_movil.y -= 3
+    	@tope = true if @plataforma_movil.y <= (976 - 300)
+    else
+    	@plataforma_movil.y += 3
+    	@tope = false if @plataforma_movil.y >= 976
     end
 
-    win if hit(@gilbert, @meta)
+
+
+    win if @gilbert.y == @meta.bb.top && @gilbert.x <= @meta.bb.center[0]
     lose if @life_time.zero?
   end
 
@@ -143,11 +165,11 @@ class Level2 < Chingu::GameState
     push_game_state(Puntajes.new(player_name: @player_name, score: @score, difficulty: @difficulty, sonido: @sonido))
   end
 
-  def hit(object1, object2)
-    object1.each_collision(object2) do |e1, e2|
-      return true
-    end
-    false
-  end
+  # def hit(object1, object2)
+  #   object1.each_collision(object2) do |e1, e2|
+  #     return true
+  #   end
+  #   false
+  # end
 
 end

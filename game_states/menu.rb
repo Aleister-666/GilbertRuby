@@ -13,7 +13,7 @@ class Menu < Chingu::GameState
     @select_sound = 0
     music = 'Musica: ON'
     sound_track = Song.new('media/Songs/menuSound.mp3')
-    sound_track_insane = Song.new('media/Songs/Pride.mp3')
+    sound_track_insane = Song.new('media/Songs/menuSong Insane.mp3')
     @sound_tracks_list << sound_track
     @sound_tracks_list << sound_track_insane
     @sound_tracks_list[@select_sound].play
@@ -112,12 +112,12 @@ class Menu < Chingu::GameState
         @difficulty_message.text = "Dificultad: #{@difficulty[2]}"
         @token_difficulty = 2
         @select_sound = 1
-        @sound_tracks_list[@select_sound].play
+        @sound_tracks_list[@select_sound].play if @music_playing
       else
         @difficulty_message.text = "Dificultad: #{@difficulty[0]}"
         @token_difficulty = 0
         @select_sound = 0
-        @sound_tracks_list[@select_sound].play
+        @sound_tracks_list[@select_sound].play if @music_playing
       end
     when 3
       if @music_playing

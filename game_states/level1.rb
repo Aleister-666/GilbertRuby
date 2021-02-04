@@ -5,8 +5,8 @@ class Level1 < Chingu::GameState
 
   traits :viewport, :timer
 
-  GAME_OBJECTS = [Base, Moneda, Plataforma, Plataforma2, Boton, Meta].freeze
-  PLATAFORMAS = [Base, Plataforma, Plataforma2, Meta].freeze
+  GAME_OBJECTS = [Base, Moneda, Plataforma, Plataforma2, Meta].freeze
+  PLATAFORMAS = [Base, Plataforma, Plataforma2].freeze
 
   def initialize(**options)
     super
@@ -31,7 +31,6 @@ class Level1 < Chingu::GameState
 
     @plataformas = Plataforma2.all
     @music = Song.new('media/Songs/Music Level1.mp3')
-    @music.play(true) if @sonido
     @loser_song = Song.new('media/Songs/gameover.ogg')
 
     @moneda = Moneda.all.first
@@ -45,20 +44,19 @@ class Level1 < Chingu::GameState
     @msj_name = Chingu::Text.new(@player_name, x: 85, y: 25, size: 30, color: Gosu::Color::WHITE)
     @msj_score = Chingu::Text.new(@score.to_s, x: $window.width - 130, y: 30, size: 35)
     @mensaje = Chingu::Text.new('Has encontrado todas las monedas', x: 320, y: 20, size: 25, color: Gosu::Color::GREEN)
-    @mensaje2 = Chingu::Text.new('Encuentra el Boton', x: @msj_name.x, y: 45, size: 30, color: Gosu::Color::YELLOW)
+    @mensaje2 = Chingu::Text.new('Encuentra la Meta', x: @msj_name.x, y: 45, size: 30, color: Gosu::Color::YELLOW)
+
+    @music.play(true) if @sonido
   end
 
 
   # def edit
   #   push_game_state(Chingu::GameStates::Edit.new(except: [Gilbert,
   #                                                         PulsatingText,
-  #                                                         Boton,
   #                                                         BaseLv3,
   #                                                         PlataformaMLv3,
   #                                                         PlataformaSLv3]))
   # end
-
-
 
   def draw
     @background.draw(0, -200, 0)
@@ -69,10 +67,13 @@ class Level1 < Chingu::GameState
     @msj_score.draw
 
     # condiciones para que aparesca o no la meta del nivel
-    if @score == 16
+    if @score == 15
       create_meta(ramdon_location) unless @meta_on
+      Plataforma2.all.select do |e|
+        e.x == @plataforma_meta.x && e.y == @plataforma_meta.y
+      end.first.destroy unless @meta_on
+      
       @meta_on = true
-      Plataforma2.all.select{ |e| e.x == @plataforma_meta.x && e.y == @plataforma_meta.y}[0].hide!
       @msj_name.y = 15
       @mensaje.draw
       @mensaje2.draw
@@ -83,7 +84,7 @@ class Level1 < Chingu::GameState
     super
     $window.caption = "Gilbert Ruby\tFPS:#{fps}"
     # $window.caption = "Gilbert Ruby\tFPS:#{fps}\t Objects: #{current_game_state.game_objects.size}"
-    
+
     @music.volume = 0.3
     @msj_score.text = "#{@score}"
     viewport.center_around(@gilbert)
@@ -96,8 +97,8 @@ class Level1 < Chingu::GameState
 
     if @meta_on
       Moneda.destroy_all
-      @gilbert.each_collision(Boton) do
-  	    win
+      @gilbert.each_collision(Meta) do |gilbert, meta|
+  	    win if gilbert.x <= meta.bb.center[0] && gilbert.y == meta.bb.top
       end
     end
     
@@ -126,14 +127,11 @@ class Level1 < Chingu::GameState
 
   # Crea la meta y boton
   def create_meta(array)
-    @boton = Boton.create(x: array[0], y: array[1] + 18)
     @plataforma_meta = Meta.create(x: array[0], y: array[1] + 45)
   end
   
   # Metodo que sirve para cambiar la posicion de la meta de forma "Aleatoria"
   def meta_random_location(array)
-    @boton.x = array[0]
-    @boton.y = array[1] + 18
     @plataforma_meta.x = array[0]
     @plataforma_meta.y = array[1] + 45
   end

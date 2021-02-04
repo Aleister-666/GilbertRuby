@@ -1,25 +1,28 @@
 # GilbertRuby
 *Practica de videojuego con Gosu y Chingu en Ruby*
 
-## Meta
-El juego consisten en recolectar el mayor numero de monedas posibles. Los puntajes son guardados al perder y solamente es jugardado el puntaje mas alto.
+## Objetivos
+El juego consisten en recolectar el mayor numero de monedas posibles. Los puntajes son guardados al perder y solamente es guardado el puntaje mas alto.
 
 Existen 3 tipos de monedas las cuales poseen valores diferentes:
 * Las monedas de **Bronce** son las de menor valor, pero son las que mas aparecen. **1 moneda de bronce = 1pt**
 * Las monedas de **Plata** son las de valor intermedio, aparecen de vez en cuando. **1 moneda de plata = 5pt**
 * Las monedas de **Oro** son las de mayor valor y aparecen raramente. **1 moneda de oro = 10pt**
 
-Recomendacion al jugar: ***"Si siempre atento estas, el game over no conoceras"***
+Recomendacion al jugar: ***"Si pendiente estas, el game over no conoceras"***
+## Caracteristicas V1.0.0
+* 3 Niveles de juego diferentes.
+* 3 Dificultades Normal, Dificil e Insane
+* Mejoras sustanciales en mecanicas respecto a versiones anteriores
+* Mejora visual en algunas partes (nuevos fondos y efectos) respecto a versiones anteriores
+* Correciones de bugs conocidos.
 
-## Novedades v1.0.0
-* Se agrego un nuevo nivel
-* Se agregaron 3 modos de dificultad (Normal, Dificil, Insane).
-* Correciones a bug descubiertos.
-* Mejoras en las mecanicas del juego.
-* Se agregaron cheats ocultos para un nivel.
-* Se cambiaron los Backgrounds de los niveles por unos nuevos.
-* Los puntajes en la ventana de puntaciones se marcan en amarillo para distinguirlos.
-* Se agrego fondo por defecto a la pantalla de espera.
+## Novedades v1.1.1
+* Solucion a bugs en niveles 1 y 2
+* Solucion a bugs en pantalla de menu
+* Mejoras en la mecanica del nivel 2
+* Mejoras en la mecanica del nivel 3
+* Mejoras leves en la mecanica del nivel 1
 
 ## Requisitos:
 * Resolucion Minima: 900 x 600

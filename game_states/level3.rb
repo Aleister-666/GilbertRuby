@@ -40,7 +40,6 @@ class Level3 < Chingu::GameState
 
     @music = Song.new('media/Songs/Music Level3.mp3')
     @loser_song = Song.new('media/Songs/gameover.ogg')
-    @music.play(true) if @sonido
 
     @marco_name = Image['MarcoName.png']
     @marco_score = Image['MarcoPoint.png']
@@ -51,14 +50,14 @@ class Level3 < Chingu::GameState
     
     case @difficulty
     when 'INSANE'
-      @life_time = 40
+      @life_time = 80
     when 'DIFICIL'
-      @life_time = 70
+      @life_time = 100
     else
-      @life_time = 150
+      @life_time = 120
     end
 
-    @time = Chingu::Text.new("Oxigeno: #{@life_time}", x: 350, y: 15, size: 50)
+    @time = Chingu::Text.new("Tiempo: #{@life_time}", x: 350, y: 15, size: 50)
     @danger = Chingu::Text.new('Regresa a la plataforma de recarga',
                                 x: @time.x, y: @time.y + 50,
                                 size: 20, color: Gosu::Color::YELLOW)
@@ -88,6 +87,8 @@ class Level3 < Chingu::GameState
     @temp = 0
     @temp_p = 0
     @temp_o = 0
+    
+    @music.play(true) if @sonido
   end
 
 
@@ -158,7 +159,7 @@ class Level3 < Chingu::GameState
     @temp += 1
     if @temp >= 60 && @temp < 70
       @life_time -= 1 unless hit_by(@gilbert, RechargeStation)
-      @time.text = "Oxigeno: #{@life_time}"
+      @time.text = "Tiempo: #{@life_time}"
       @temp = 0
       @temp_p += 1
       @temp_o += 1
@@ -212,16 +213,17 @@ class Level3 < Chingu::GameState
       end
     end
 
+    # Recarga el tiempo de vida con su valor correspondiente
     @gilbert.each_collision(RechargeStation) do |_gilbert, _recharge_station|
-      @time.color = Gosu::Color::WHITE
       case @difficulty
       when 'NORMAL'
-        @life_time = 150
+        @life_time = 120
       when 'DIFICIL'
-        @life_time = 70
+        @life_time = 100
       when 'INSANE'
-        @life_time = 40
+        @life_time = 80
       end
+      @time.color = Gosu::Color::WHITE
     end
 
     # Constantemente se escanea la direccion y altitud de el objetivo

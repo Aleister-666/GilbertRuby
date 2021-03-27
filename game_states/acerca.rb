@@ -8,7 +8,7 @@ class Acerca < Chingu::GameState
     inputs = File.read(direccion)
   
     Chingu::Text.create(inputs, x: 0, y: 85, size: 30, color: Gosu::Color::WHITE, align: :center, max_width: $window.width)
-    Chingu::Text.create('Github Developer---> Aleister-666', x: 100, y: 365, size: 60, color: Gosu::Color::FUCHSIA)
+    Chingu::Text.create('Developer---> Github:Aleister-666', x: 50, y: 365, size: 60, color: Gosu::Color::FUCHSIA)
     Chingu::Text.create('Backgrounds---> @crisangel', x: 150, y: 430, size: 60, color: Gosu::Color::BLUE)
     Chingu::Text.create('Pulsa Q Para Regresar', x: 240, y: $window.height - 100, size: 50, color: Gosu::Color::RED)
   end

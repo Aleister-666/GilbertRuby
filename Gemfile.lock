@@ -1,8 +1,10 @@
 GEM
+  remote: https://rubygems.org/
   specs:
     chingu (0.9rc9)
       gosu (>= 0.7.45)
-    gosu (0.15.2)
+    gosu (1.2.0)
+    psych (3.3.2)
 
 PLATFORMS
   ruby
@@ -10,6 +12,7 @@ PLATFORMS
 DEPENDENCIES
   chingu
   gosu
+  psych (~> 3.3.1)
 
 BUNDLED WITH
-   2.1.4
+   2.2.19

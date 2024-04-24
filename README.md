@@ -26,7 +26,7 @@ Recomendacion al jugar: ***"Si pendiente estas, el game over no conoceras"***
 
 ## Requisitos:
 * Resolucion Minima: 900 x 600
-* Linux o Windows(Para la version de windows, esta un ejecutable y no es nesesario tener los siguientes requisitos)
+* Linux o Windows
 * Ruby 3.0 || 1.8.3+
 * Gosu (Si la gema no esta instalada, correr en la terminal el comando "bundle install" para instalar las gemas necesarias)
 * Chingu (Si la gema no esta instalada, correr en la terminal el comando "bundle install" para instalar las gemas necesarias)
